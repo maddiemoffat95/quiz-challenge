@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/quiz.css">
     <title>JavaScript Quiz</title>
 </head>
 
@@ -32,15 +31,17 @@
         <form>
             <label for="initials">Enter your initials here: </label><br>
             <input type="text" id="initial-box" initials="initials" placeholder="ex: AB"><br>
-            <input type="submit" value="OK" id="submit-button" class="submit-button">
-            <a href="./high-score.html"></a>
+            <input type="button" value="OK" id="ok-button" class="ok-button">
         </form>
     </section>
+    <div class ="high-score" id="high-score">High Scores
+    </div>
     <form>
-        <button type="submit" id="start-button" class="start-button">Start</button>
+        <button type="submit" id="start-button" class="start-button">Start Quiz</button>
     </form>
 
     <script src="./assets/quiz.js"></script>
+    <link rel="stylesheet" href="./assets/quiz.css">
 </body>
 
 </html>

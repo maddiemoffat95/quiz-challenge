@@ -65,11 +65,12 @@ let questionDiv = document.getElementById("question-div");
 let lastQ = questions[questions.length - 1];
 let timerId;
 let initials;
-let submit = document.getElementById("submit-button");
+let okButton = document.getElementById("ok-button");
 
 
 function displayQuestion(curQ) {
     document.getElementById("question-div").style.display = "block";
+    document.getElementById("high-score").style.display = "none";
     document.getElementById("start-button").style.display = "none";
     document.getElementById("header").style.display = "none";
     questionDiv.innerHTML = "<p>" + curQ.text + "</p>";
@@ -124,13 +125,14 @@ function showScore() {
     document.getElementById("score").style.display = "block";
     document.getElementById("score-div").style.display = "block";
     document.getElementById("score-div").innerHTML = "<p>" + "Congratulations! Your Score is: " + timeLeft + "</p>";
-    submit.addEventListener("click", showHighScore);
+    okButton.addEventListener("click", showHighScore);
 };
 
 function showHighScore() {
     document.getElementById("score").style.display = "none";
     document.getElementById("high-score").style.display = "block";
-    initials = document.getElementById("initial-box").value
+    document.getElementById("start-button").style.display ="block";
+    initials = document.getElementById("initial-box").value;
     let userScore = {
         "user": initials,
         "score": timeLeft
@@ -140,7 +142,8 @@ function showHighScore() {
     var retrievedData = localStorage.getItem("highScore");
 
     document.getElementById("high-score").innerHTML = "High Score" + "<p>" + retrievedData + "</p>"
-    startOver.addEventListener("click", secondStart);
+
+
 };
 
 // I need to create a start over button and have it call a fucntion that starts everything over instead of the page reloading after showHighScore and also have the button terminate a while loop
@@ -158,18 +161,10 @@ function startQuiz(e) {
     displayQuestion(curQ);
 };
 
-function secondStart() {
-    document.getElementById("header").style.display = "block";
-    document.getElementById("start-button").style.display = "block";
-    document.getElementById("question-div").style.display = "none";
-    document.getElementById("answer-div").style.display = "none";
-    document.getElementById("score").style.display = "none";
-    document.getElementById("score-div").style.display = "none";
-};
-
 document.getElementById("question-div").style.display = "none";
 document.getElementById("answer-div").style.display = "none";
 document.getElementById("score").style.display = "none";
 document.getElementById("score-div").style.display = "none";
+document.getElementById("high-score").style.display = "none";
 
 start.addEventListener("click", startQuiz);
