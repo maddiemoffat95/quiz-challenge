@@ -1,0 +1,75 @@
+body {
+ background-color: white;
+ position: fixed; 
+ left: 50%;
+ transform: translate(-50%);
+ font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+header {
+    text-align: center;
+    vertical-align: middle;
+}
+
+    .title {
+        color: white;
+        background-color: darkblue;
+        font-size: 30px;
+        padding: 10px;
+        border-radius: 25px;
+        
+    }
+    .opener {
+        padding: 10px;
+        color: darkblue;
+        font-size: 24px;
+    }
+
+.timer {
+    color: darkblue;
+}
+
+.question-answer {  
+    text-align: center;
+    vertical-align: middle;
+
+}
+    .question-div {
+        color: darkblue;
+        font-size: 20px;
+    }
+    .answer-div{
+        color: darkblue;
+    }
+
+.score {
+    text-align: center;
+    vertical-align: middle;
+
+}
+    .score-div {
+        color: darkblue;
+        font-size: 24px;
+
+    }
+        form{
+            color: darkblue
+        }
+    
+    .initials {
+        color:darkblue
+    }
+
+.high-score {
+    color: darkblue;
+    font-size: 24px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.start-button {
+    background-color: gray;
+    color: white;
+    font-size: 18px;
+    border-radius: 15px;
+}

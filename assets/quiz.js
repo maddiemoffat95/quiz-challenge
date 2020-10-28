@@ -79,6 +79,7 @@ function displayQuestion(curQ) {
         button.textContent = choice
         questionDiv.append(button)
     });
+
     questionDiv.childNodes[1].addEventListener("click", function () { checkAnswer(questionDiv.childNodes[1].outerText) });
     questionDiv.childNodes[2].addEventListener("click", function () { checkAnswer(questionDiv.childNodes[2].outerText) });
     questionDiv.childNodes[3].addEventListener("click", function () { checkAnswer(questionDiv.childNodes[3].outerText) });
@@ -133,20 +134,19 @@ function showHighScore() {
     document.getElementById("high-score").style.display = "block";
     document.getElementById("start-button").style.display ="block";
     initials = document.getElementById("initial-box").value;
+   
     let userScore = {
         "user": initials,
         "score": timeLeft
     };
 
     localStorage.setItem("highScore", JSON.stringify(userScore));
-    var retrievedData = localStorage.getItem("highScore");
+    document.getElementById("high-score").innerHTML = "High Score" + "<p>" + userScore.user+ ":" + userScore.score + "</p>"
 
-    document.getElementById("high-score").innerHTML = "High Score" + "<p>" + retrievedData + "</p>"
-
-
+    runningQ=0;
+    curQ = questions[runningQ];
+    timeLeft=75;
 };
-
-// I need to create a start over button and have it call a fucntion that starts everything over instead of the page reloading after showHighScore and also have the button terminate a while loop
 
 function endQuiz() {
     document.getElementById("question-div").style.display = "none";
@@ -159,6 +159,7 @@ function startQuiz(e) {
     e.preventDefault();
     startTimer();
     displayQuestion(curQ);
+    document.getElementById("timer").style.display="block";
 };
 
 document.getElementById("question-div").style.display = "none";
@@ -166,5 +167,6 @@ document.getElementById("answer-div").style.display = "none";
 document.getElementById("score").style.display = "none";
 document.getElementById("score-div").style.display = "none";
 document.getElementById("high-score").style.display = "none";
+
 
 start.addEventListener("click", startQuiz);
